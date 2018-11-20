@@ -5,15 +5,24 @@
     <title>Hello World!</title>
   </head>
   <body>
+    <div style="height: 50px ; -webkit-app-region: drag ; background-color: blue ;"></div>
     <h1>Hello World!</h1>
     <!-- All of the Node.js APIs are available in this renderer process. -->
     We are using Node.js <script>document.write(process.versions.node)</script>,
     Chromium <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
 
+    <div id="content"></div>
+
     <script>
       // You can also require other files to run in this process
       require('./renderer.js')
+
+      setTimeout(() => {
+          document.getElementById('content').innerHTML = '<iframe scrolling="no" src="https://slashdot.org" sandbox="allow-scripts allow-same-origin" width="400" height="300"></iframe>'
+      }, 2000)
     </script>
+
+
   </body>
 </html>
